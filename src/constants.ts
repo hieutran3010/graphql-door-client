@@ -1,6 +1,6 @@
 export const SUPPORTED_VARIABLES_TYPE = {
   input: 'Input!',
-  queryParams: 'QueryParams!',
+  queryParams: 'QueryParamsInput!',
   query: 'String!',
   id: 'GUID!',
 };

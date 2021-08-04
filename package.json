@@ -1,11 +1,8 @@
 {
   "name": "graphql-door-client",
-  "author": {
-    "email": "trantrunghieu3010@gmail.com",
-    "name": "Hieu Tran"
-  },
+  "author": "Hieu Tran <trantrunghieu3010@gmail.com>",
   "repository": {
-    "url": "git+https://github.com/hieutran3010/graphql-door-client",
+    "url": "git+https://github.com/hieutran3010/graphql-door-client.git",
     "type": "git"
   },
   "license": "MIT",
@@ -24,12 +21,14 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "test": ""
   },
-  "version": "1.1.14",
+  "version": "1.2.1",
   "dependencies": {
-    "graphql-request": "1.8.2",
-    "lodash": "^4.17.15"
+    "graphql": "^15.5.1",
+    "graphql-request": "^3.5.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.152",
@@ -41,5 +40,13 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "description": "This helps to create a client point to fetch data from backend is built with [GraphQLDoorNet](https://github.com/hieutran3010/GraphQLDoorNet)",
+  "bugs": {
+    "url": "https://github.com/hieutran3010/graphql-door-client/issues"
+  },
+  "homepage": "https://github.com/hieutran3010/graphql-door-client#readme",
+  "directories": {
+    "lib": "lib"
+  }
 }

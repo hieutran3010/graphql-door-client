@@ -1,7 +1,7 @@
+import { Variables } from 'graphql-request/dist/types';
 import camelCase from 'lodash/fp/camelCase';
 import GraphQLDoorClient from './GraphQLDoorClient';
-import { QueryParams, MathResult } from './types';
-import { Variables } from 'graphql-request/dist/src/types';
+import { QueryParamsInput, MathResult } from './types';
 
 export default class GraphQLEntityFetcher<T> {
   graphqlClient: GraphQLDoorClient;
@@ -14,17 +14,17 @@ export default class GraphQLEntityFetcher<T> {
     this.onGetSelectFields = onGetSelectFields;
   }
 
-  queryManyAsync = (queryParams: QueryParams, selectFields?: string[]): Promise<T[]> => {
+  queryManyAsync = (queryParams: QueryParamsInput, selectFields?: string[]): Promise<T[]> => {
     const defaultSelectFields = this.onGetSelectFields();
     return this.graphqlClient.queryManyAsync(this.entityName, queryParams, selectFields || defaultSelectFields);
   };
 
-  queryOneAsync = (queryParams: QueryParams, selectFields?: string[]): Promise<T> => {
+  queryOneAsync = (queryParams: QueryParamsInput, selectFields?: string[]): Promise<T> => {
     const defaultSelectFields = this.onGetSelectFields();
     return this.graphqlClient.queryOneAsync(this.entityName, queryParams, selectFields || defaultSelectFields);
   };
 
-  getByIdAsync = (id: string, queryParams: QueryParams, selectFields?: string[]): Promise<T> => {
+  getByIdAsync = (id: string, queryParams: QueryParamsInput, selectFields?: string[]): Promise<T> => {
     const defaultSelectFields = this.onGetSelectFields();
     return this.graphqlClient.getByIdAsync(this.entityName, id, queryParams, selectFields || defaultSelectFields);
   };
@@ -42,6 +42,7 @@ export default class GraphQLEntityFetcher<T> {
   };
 
   deleteAsync = (id: string) => this.graphqlClient.deleteAsync(this.entityName, id);
+  deleteBatchAsync = (ids: string[]) => this.graphqlClient.deleteBatchAsync(this.entityName, ids);
 
   executeCustomMutationAsync = (mutationName: string, payload: any, variable: any, selectFields?: string[]) =>
     this.graphqlClient.executeCustomMutationAsync(this.entityName, mutationName, payload, variable, selectFields);

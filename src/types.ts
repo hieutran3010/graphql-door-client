@@ -1,4 +1,4 @@
-export type QueryParams = {
+export type QueryParamsInput = {
   query?: string;
   include?: string;
   orderBy?: string;
@@ -7,7 +7,7 @@ export type QueryParams = {
 };
 
 export type QueryVariables = {
-  queryParams: QueryParams;
+  queryParams: QueryParamsInput;
   id?: string;
 };
 

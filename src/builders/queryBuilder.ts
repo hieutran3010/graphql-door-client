@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import camelCase from 'lodash/fp/camelCase';
 import toString from 'lodash/fp/toString';
 import { parseBodyQueryVariable, convertSelectFieldsArrayToString } from '../util';
-import { QueryOperation, QueryParams, GraphQLVariable, QueryVariables, CountQueryVariables } from '../types';
+import { QueryOperation, QueryParamsInput, GraphQLVariable, QueryVariables, CountQueryVariables } from '../types';
 
 export default class QueryBuilder {
   private _internalBuildQuery = (
@@ -34,7 +34,7 @@ export default class QueryBuilder {
   buildQuery = (
     entityName: string,
     operation: QueryOperation,
-    params: QueryParams | CountQueryVariables,
+    params: QueryParamsInput | CountQueryVariables,
     selectFields?: string[],
     id?: string,
     isCountQuery: boolean = false,
@@ -80,7 +80,7 @@ export default class QueryBuilder {
   };
 
   getQueryVariables = (
-    queryParams: QueryParams | CountQueryVariables,
+    queryParams: QueryParamsInput | CountQueryVariables,
     id?: string,
     isCountQuery: boolean = false,
   ): QueryVariables | CountQueryVariables => {

@@ -24,7 +24,7 @@
     "postversion": "git push && git push --tags",
     "test": ""
   },
-  "version": "1.2.1",
+  "version": "1.2.2",
   "dependencies": {
     "graphql": "^15.5.1",
     "graphql-request": "^3.5.0",
